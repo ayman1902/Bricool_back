@@ -16,7 +16,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @RestController
-@RequestMapping("/api/seller")
+@RequestMapping("/api")
 public class SellerController {
 
 
@@ -33,7 +33,7 @@ public class SellerController {
         return sellerRepository.findById(id).get();
     }
 
-    @PostMapping("/sellers/{id}")
+    @PostMapping("/sellers")
 
     public Seller saveSeller(@RequestBody Seller seller){
         return sellerRepository.save(seller);
