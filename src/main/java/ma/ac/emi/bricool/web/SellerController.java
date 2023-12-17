@@ -6,6 +6,7 @@ import ma.ac.emi.bricool.entities.Skill;
 import ma.ac.emi.bricool.repositories.SellerRepository;
 import ma.ac.emi.bricool.repositories.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,6 +15,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -28,11 +30,16 @@ public class SellerController {
 
 
     @GetMapping("/sellers/{id}")
+    public ResponseEntity<?> getSeller(@PathVariable Long id) {
+        Optional<Seller> sellerOptional = sellerRepository.findById(id);
 
-    public Seller getSeller(@PathVariable Long id){
-        return sellerRepository.findById(id).get();
+        if (sellerOptional.isPresent()) {
+            Seller seller = sellerOptional.get();
+            return ResponseEntity.ok(seller);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Seller not found with id: " + id);
+        }
     }
-
     @PostMapping("/sellers")
 
     public Seller saveSeller(@RequestBody Seller seller){
