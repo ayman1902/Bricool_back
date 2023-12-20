@@ -24,16 +24,17 @@ public class Client {
 
     private String email;
 
+    private String gender;
 
     private String Phone;
 
     private String password;
 
-
-    public Client(String firstName, String lastName, String email, String phone, String password) {
+    public Client(String firstName, String lastName, String email, String gender, String phone, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.gender = gender;
         Phone = phone;
         this.password = password;
     }

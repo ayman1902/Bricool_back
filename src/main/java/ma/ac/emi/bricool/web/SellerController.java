@@ -20,14 +20,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 public class SellerController {
-
-
     @Autowired
     private SellerRepository sellerRepository;
-
     @Autowired
     private SkillRepository skillRepository;
-
 
     @GetMapping("/sellers/{id}")
     public ResponseEntity<?> getSeller(@PathVariable Long id) {
@@ -56,9 +52,7 @@ public class SellerController {
 
             return skill;
     }
-
-
-    @PostMapping("/sellers/{id}/image")
+    /*@PostMapping("/sellers/{id}/image")
     public void createSynthImage(@PathVariable("id") long id, @RequestParam("file") MultipartFile image) throws Exception {
         Seller seller = sellerRepository.findById(id).orElseThrow();
         // The "public" directory is automatically used by Spring to serve static assets
@@ -70,6 +64,6 @@ public class SellerController {
         }
         seller.setPhotoDeProfil(image.getOriginalFilename());
         sellerRepository.save(seller);
-    }
+    }*/
 
 }
