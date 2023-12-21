@@ -18,7 +18,7 @@ import java.util.List;
 public class Seller extends Client{
 
 
-    //private List<Occupation> occupations = new ArrayList<>();
+    private List<String> occupations = new ArrayList<>();
 
 
    // private List <String> regionalOperations;
@@ -31,9 +31,9 @@ public class Seller extends Client{
 
     //private String businessHours;
 
-    private Ville ville;
+    private String ville;
     private Date dateOfBirth;
-    private String occupation;
+
 
 //
 //    private Gender gender;
@@ -88,12 +88,10 @@ public class Seller extends Client{
 //    }
 
 
-    public Seller(String firstName, String lastName, String email, String gender, String phone, String password, Ville ville, Date dateOfBirth, String occupation) {
+    public Seller(String firstName, String lastName, String email, String gender, String phone, String password, List<String> occupations, String ville, Date dateOfBirth) {
         super(firstName, lastName, email, gender, phone, password);
+        this.occupations = occupations;
         this.ville = ville;
         this.dateOfBirth = dateOfBirth;
-        this.occupation = occupation;
     }
-
-
 }
