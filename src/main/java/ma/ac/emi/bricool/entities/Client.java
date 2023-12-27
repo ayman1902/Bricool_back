@@ -2,40 +2,31 @@ package ma.ac.emi.bricool.entities;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.sql.Date;
+
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
-
-
 public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long ClientId;
 
-    @Column(name = "first_name")
     private String firstName;
     private String lastName;
-
     private String email;
-
+    private String password;
+    private String phoneNumber;
+    private Date yearsOfBirth;
     private String gender;
 
-    private String Phone;
 
-    private String password;
-
-    public Client(String firstName, String lastName, String email, String gender, String phone, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.gender = gender;
-        Phone = phone;
-        this.password = password;
-    }
 }

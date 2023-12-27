@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@EqualsAndHashCode(callSuper = true)
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -17,81 +17,28 @@ import java.util.List;
 
 public class Seller extends Client{
 
+    @Id
+    @GeneratedValue
+    private Long sellerId;
+    private String cin;
+    private String businessHours;
+    private String operationalRegion;
+    private String city;
+    private String slogan;
+    private String description;
+    private Double rating;
+    private Integer completedTaskNumber;
+    private String photoDeProfil;
+    private Integer yearsOfExperience;
 
-    private List<String> occupations = new ArrayList<>();
+    @ElementCollection
+    private List<String> occupations;
 
-
-   // private List <String> regionalOperations;
-
-
-    //private String photoDeProfil;
-
-
-    //private String cin;
-
-    //private String businessHours;
-
-    private String ville;
-    private Date dateOfBirth;
-
-
-//
-//    private Gender gender;
-//    private String city;
-//
-//
-//    private String slogan;
-//
-//    private String description;
-//
-//    private int rating;
-//
-//    private int completedTAskNumber;
-//
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="seller_id", referencedColumnName = "sellerId")
+    private List<Project> projects;
 
 
-   /* @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List <Photo> photos = new ArrayList<>();
-
-    @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL, orphanRemoval = true)
-   private List <Skill> skills= new ArrayList<>();*/
-
-//    public Seller(String firstName,
-//                  String lastName,
-//                  String email,
-//                  String phone,
-//                  String password,
-//                  String regionalOperations,
-//                  String cin,
-//                  String businessHours,
-//                  Ville ville,
-//                  Gender gender,
-//                  String city,
-//                  String slogan,
-//                  String description,
-//                  int rating,
-//                  int completedTAskNumber
-//    ) {
-//
-//        super(firstName, lastName, email, phone, password);
-//
-//       // this.regionalOperations = regionalOperations;
-//        this.cin = cin;
-//        this.businessHours = businessHours;
-//        this.ville = ville;
-//        this.gender = gender;
-//        this.city = city;
-//        this.slogan = slogan;
-//        this.description = description;
-//        this.rating = rating;
-//        this.completedTAskNumber = completedTAskNumber;
-//    }
 
 
-    public Seller(String firstName, String lastName, String email, String gender, String phone, String password, List<String> occupations, String ville, Date dateOfBirth) {
-        super(firstName, lastName, email, gender, phone, password);
-        this.occupations = occupations;
-        this.ville = ville;
-        this.dateOfBirth = dateOfBirth;
-    }
 }
