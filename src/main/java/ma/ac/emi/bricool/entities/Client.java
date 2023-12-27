@@ -2,10 +2,7 @@ package ma.ac.emi.bricool.entities;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.sql.Date;
 
@@ -14,7 +11,8 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Client {
+@Builder
+public class Client{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

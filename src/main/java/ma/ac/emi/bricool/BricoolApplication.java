@@ -18,11 +18,7 @@ import java.util.Arrays;
 public class BricoolApplication {
 
 
-   @Autowired
-    ClientRepository clientRepository;
 
-   @Autowired
-    SellerRepository sellerRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(BricoolApplication.class, args);

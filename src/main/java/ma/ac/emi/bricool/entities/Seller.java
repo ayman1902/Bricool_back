@@ -14,11 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 
-public class Seller extends Client{
+public class Seller{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sellerId;
     private String cin;
     private String businessHours;
@@ -37,6 +38,15 @@ public class Seller extends Client{
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="seller_id", referencedColumnName = "sellerId")
     private List<Project> projects;
+
+
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private String phoneNumber;
+    private Date yearsOfBirth;
+    private String gender;
 
 
 
