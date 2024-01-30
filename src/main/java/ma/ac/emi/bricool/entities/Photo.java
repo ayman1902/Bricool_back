@@ -22,7 +22,5 @@ public class Photo {
 
     private String url;
 
-    @ManyToOne
-    @JoinColumn(name = "seller_id", referencedColumnName = "sellerId")
-    private Seller seller;
+
 }

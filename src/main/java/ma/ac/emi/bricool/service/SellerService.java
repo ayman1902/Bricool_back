@@ -56,4 +56,13 @@ public class SellerService {
     public void deleteSeller(Long id) {
         sellerRepository.deleteById(id);
     }
+
+
+    // save seller
+    public void save(Seller seller) {
+
+        sellerRepository.save(seller);
+    }
+
+
 }

@@ -1,6 +1,7 @@
 package ma.ac.emi.bricool.service;
 
 import ma.ac.emi.bricool.entities.Client;
+import ma.ac.emi.bricool.entities.Seller;
 import ma.ac.emi.bricool.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,10 @@ public class ClientService {
     }
 
     // Get a client by ID
-    public Optional<Client> getClientById(Long id) {
-        return clientRepository.findById(id);
+    public Client getClientById(Long id) {
+
+        Optional<Client> sellerOptional = clientRepository.findById(id);
+        return sellerOptional.orElse(null);
     }
 
     // Update a client by ID

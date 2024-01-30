@@ -13,14 +13,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@Builder
 
-public class Seller{
+@DiscriminatorValue("seller")
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long sellerId;
+public class Seller extends AppUser{
+
+
     private String cin;
     private String businessHours;
     private String operationalRegion;
@@ -33,22 +31,21 @@ public class Seller{
     private Integer yearsOfExperience;
 
     @ElementCollection
-    private List<String> occupations;
+    private List<String> occupations= new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="seller_id", referencedColumnName = "sellerId")
+    @OneToMany
     private List<Project> projects;
 
-
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String phoneNumber;
-    private Date yearsOfBirth;
-    private String gender;
+    private String role= UserRole.SELLER;
 
 
+    @Override
+    public String getRole() {
+        return UserRole.SELLER;
+    }
 
 
+    public void addOccupation(String occupation){
+        this.occupations.add(occupation);
+    }
 }

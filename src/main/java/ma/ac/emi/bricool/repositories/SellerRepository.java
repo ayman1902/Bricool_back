@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface SellerRepository extends JpaRepository<Seller, Long> {
 
 
-
+    boolean existsByEmailIgnoreCase(String email);
 }

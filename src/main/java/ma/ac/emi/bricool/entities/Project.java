@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
 
 public class Project {
@@ -21,14 +22,12 @@ public class Project {
 
     private String name;
     private String description;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "project_id", referencedColumnName = ("projectId"))
-    private List<Photo> photo;
+
+    @ElementCollection
+    private List<String> photos;
 
 
 
-    public Project() {
 
-    }
 
 }
