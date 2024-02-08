@@ -45,16 +45,14 @@ public class SellerController {
 
     // Get seller by ID
     @GetMapping("/{id}")
-    public ResponseEntity<Seller> getSellerById(@PathVariable("id") Long id) {
-        Seller seller = sellerService.getSellerById(id);
-        return new ResponseEntity<>(seller, HttpStatus.OK);
+    public Seller getSellerById(@PathVariable("id") Long id) {
+        return this.sellerService.getSellerById(id);
     }
 
     // Update seller by ID
     @PutMapping("/{id}")
-    public ResponseEntity<Seller> updateSeller(@PathVariable("id") Long id, @RequestBody Seller seller) {
-        Seller updatedSeller = sellerService.updateSeller(id, seller);
-        return new ResponseEntity<>(updatedSeller, HttpStatus.OK);
+    public Seller updateSeller(@PathVariable("id") Long id, @RequestBody Seller seller) {
+        return sellerService.updateSeller(id, seller);
     }
 
     // Delete seller by ID
