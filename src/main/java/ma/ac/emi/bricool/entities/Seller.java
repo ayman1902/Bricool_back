@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Builder
 @DiscriminatorValue("seller")
 
 public class Seller extends AppUser{

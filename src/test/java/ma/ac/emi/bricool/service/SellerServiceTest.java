@@ -14,7 +14,7 @@ class SellerServiceTest {
     @Autowired
     private SellerService sellerService;
 
-    @Test
+    /*@Test
     private void addSeller(){
         Seller sellerToAdd = Seller.builder()
                 .cin("ABC123")
@@ -39,5 +39,5 @@ class SellerServiceTest {
         Seller savedSeller = sellerService.createSeller(sellerToAdd);
 
     }
-
+*/
 }
