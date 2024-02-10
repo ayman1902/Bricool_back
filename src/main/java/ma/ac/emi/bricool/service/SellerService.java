@@ -42,11 +42,22 @@ public class SellerService {
             Seller existingSeller = existingSellerOptional.get();
             // Update the fields of the existing seller with the updatedSeller
             // Make sure to handle each field update according to your requirements
-            existingSeller.setCin(updatedSeller.getCin());
-            existingSeller.setBusinessHours(updatedSeller.getBusinessHours());
+//            existingSeller.setCin(updatedSeller.getCin());
+//            existingSeller.setBusinessHours(updatedSeller.getBusinessHours());
+//            existingSeller.setOperationalRegion(updatedSeller.getOperationalRegion());
+//            existingSeller.setCity(updatedSeller.getCity());
+//            existingSeller.setSlogan(updatedSeller.getSlogan());
+//            existingSeller.setDescription(updatedSeller.getDescription());
+//            existingSeller.setRating(updatedSeller.getRating());
+//            existingSeller.setCompletedTaskNumber(updatedSeller.getCompletedTaskNumber());
+//            existingSeller.setPhotoDeProfil(updatedSeller.getPhotoDeProfil());
+//            existingSeller.setYearsOfExperience(updatedSeller.getYearsOfExperience());
+//            existingSeller.setOccupations(updatedSeller.getOccupations());
+//            existingSeller.setProjects(updatedSeller.getProjects());
+//            existingSeller.setRole(updatedSeller.getRole());
             // ... Update other fields similarly
 
-            return sellerRepository.save(existingSeller);
+            return sellerRepository.save(updatedSeller);
         } else {
             return null; // Seller not found, return null or throw an exception as needed
         }

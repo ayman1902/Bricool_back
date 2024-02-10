@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 
 @Getter
@@ -29,7 +30,7 @@ public class RegistrationRequest {
     @Size(max = 255)
     private String password;
 
-    private Date yearsOfBirth;
+    private LocalDate yearsOfBirth;
     private String gender;
 
 }
