@@ -33,7 +33,7 @@ public class Seller extends AppUser{
     @ElementCollection
     private List<String> occupations= new ArrayList<>();
 
-    @OneToMany
+    @OneToMany(mappedBy = "seller")
     private List<Project> projects;
 
     private String role= UserRole.SELLER;

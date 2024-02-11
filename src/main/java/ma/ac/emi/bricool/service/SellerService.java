@@ -56,6 +56,7 @@ public class SellerService {
 //            existingSeller.setProjects(updatedSeller.getProjects());
 //            existingSeller.setRole(updatedSeller.getRole());
             // ... Update other fields similarly
+            updatedSeller.setPhotoDeProfil(existingSeller.getPhotoDeProfil());
 
             return sellerRepository.save(updatedSeller);
         } else {
