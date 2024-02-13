@@ -1,5 +1,6 @@
 package ma.ac.emi.bricool.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,7 +36,6 @@ public class Project {
     private String serviceType;
     private String location;
     private String bookingAvailability;
-
     @ManyToOne
     @JoinColumn(name = "seller_id")
     private Seller seller;

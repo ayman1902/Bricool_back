@@ -1,5 +1,6 @@
 package ma.ac.emi.bricool.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,6 +35,7 @@ public class Seller extends AppUser{
     private List<String> occupations= new ArrayList<>();
 
     @OneToMany(mappedBy = "seller")
+    @JsonIgnore
     private List<Project> projects;
 
     private String role= UserRole.SELLER;

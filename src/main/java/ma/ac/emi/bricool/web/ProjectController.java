@@ -1,6 +1,7 @@
 package ma.ac.emi.bricool.web;
 
 import ma.ac.emi.bricool.entities.Project;
+import ma.ac.emi.bricool.repositories.ProjectRepository;
 import ma.ac.emi.bricool.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,10 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sellers/{sellerId}/projects")
+@RequestMapping("/projects")
 public class ProjectController {
 
     private final ProjectService projectService;
+    @Autowired
+    ProjectRepository projectRepository;
 
     @Autowired
     public ProjectController(ProjectService projectService) {
@@ -19,9 +22,13 @@ public class ProjectController {
     }
 
     // Get all projects of a seller
-    @GetMapping
+    @GetMapping("/{sellerId}")
     public List<Project> getAllProjectsBySellerId(@PathVariable Long sellerId) {
         return projectService.getAllProjectsBySellerId(sellerId);
+    }
+    @GetMapping("all")
+    public List<Project> getAll() {
+        return projectRepository.findAll();
     }
 
     // Get a specific project of a seller by project ID
@@ -31,7 +38,7 @@ public class ProjectController {
     }
 
     // Create a new project for a seller
-    @PostMapping
+    @PostMapping("/{sellerId}")
     public Project createProject(@PathVariable Long sellerId, @RequestBody Project project) {
         return projectService.createProject(sellerId, project);
     }
