@@ -22,7 +22,7 @@ public class ProjectController {
     }
 
     // Get all projects of a seller
-    @GetMapping("/{sellerId}")
+    @GetMapping("/op/{sellerId}")
     public List<Project> getAllProjectsBySellerId(@PathVariable Long sellerId) {
         return projectService.getAllProjectsBySellerId(sellerId);
     }
@@ -50,7 +50,7 @@ public class ProjectController {
     }
 
     // Delete a project of a seller by project ID
-    @DeleteMapping("/{projectId}")
+    @DeleteMapping("/delete/{sellerId}/{projectId}")
     public boolean deleteProject(@PathVariable Long sellerId, @PathVariable Long projectId) {
         return projectService.deleteProject(sellerId, projectId);
     }
